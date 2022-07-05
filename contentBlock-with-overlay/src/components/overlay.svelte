@@ -7,7 +7,7 @@
 
 </script>
 
-<div class="flex">
+<div class="Bg">
 <div class="A">
 
 </div>
@@ -83,9 +83,16 @@
         font-weight: lighter;
     }
 
-    .flex
+    .Bg
     {
         display:flex;
+        background-image: url('RollBanners.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width:100%;
+        margin:0px;
+        padding:0px;
     }
 
     @media screen and (min-width:350px) and (max-width: 456px){
