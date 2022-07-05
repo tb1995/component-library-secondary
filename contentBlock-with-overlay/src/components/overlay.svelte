@@ -86,13 +86,14 @@
     .Bg
     {
         display:flex;
-        background-image: url('RollBanners.jpg');
+        background-image: url('../styles/RollBanners.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         width:100%;
-        margin:0px;
-        padding:0px;
+        padding:0%;
+        margin:0%;
+        height:98vh;
     }
 
     @media screen and (min-width:350px) and (max-width: 456px){
@@ -112,45 +113,45 @@
 
     h3
     {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     h1
     {
-        font-size: 46px;
+        font-size: 42px;
         width:90%;
-        margin-top:4%;
+        margin-top:3%;
     }
 
     p
     {
-        font-size: 28px;
+        font-size: 24px;
         margin-top: 0%;
         font-weight: lighter;
-        margin-top: -1%;
+        margin-top: 3%;
     }
 
     
     button
     {
        
-        width:270px;
+        width:260px;
         font-size: 18px;
         padding-top:25px;
         padding-bottom:25px;
-        margin-top: 13%;
+        margin-top: 9%;
     }
 
     
     .positioning
     {
-      margin-left: 10%;
-      margin-top: 22%;
+      margin-left: 12%;
+      margin-top: 32%;
     }
 
     }
 
-    @media screen and (min-width:457px) and (max-width: 600px){
+    @media screen and (min-width:457px) and (max-width: 700px){
 
     .B
     {
@@ -160,19 +161,19 @@
 
     h3
     {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     h1
     {
-        font-size: 50px;
+        font-size: 48px;
         width:78%;
-        margin-top:0%;
+        margin-top:-1.5%;
     }
 
     p
     {
-        font-size: 32px;
+        font-size: 28px;
         margin-top: -6%;
         font-weight: lighter;
         margin-top: -1%;
@@ -186,19 +187,19 @@
         font-size: 20px;
         padding-top:29px;
         padding-bottom:29px;
-        margin-top: 7%;
+        margin-top: 6%;
     }
 
     
     .positioning
     {
-       margin-left: 9%;
-       margin-top: 22%;
+       margin-left: 10%;
+       margin-top: 16%;
     }
 
     }
 
-    @media screen and (min-width:601px) and (max-width: 750px){
+    @media screen and (min-width:701px) and (max-width: 900px){
     
     h3
     {
@@ -207,7 +208,7 @@
 
     h1
     {
-        font-size: 40px;
+        font-size: 42px;
         width:90%;
         margin-top:0%;
     }
@@ -217,7 +218,7 @@
         font-size: 30px;
         margin-top: -6%;
         font-weight: lighter;
-        margin-top: -1%;
+        margin-top: 2%;
     }
 
     
@@ -225,17 +226,61 @@
     {
        
         width:277px;
-        font-size: 20px;
-        padding-top:29px;
-        padding-bottom:29px;
-        margin-top: 10%;
+        font-size: 18px;
+        padding-top:32px;
+        padding-bottom:32px;
+        margin-top: 6%;
     }
 
     
     .positioning
     {
-       margin-left:6%;
-       margin-top: 17%;
+       margin-left:9%;
+       margin-top: 22%;
+    }
+
+
+
+    }
+
+    @media screen and (min-width:901px) and (max-width: 1100px){
+
+    h3
+    {
+        font-size: 26px;
+    }
+
+    h1
+    {
+        font-size: 56px;
+        width:90%;
+        margin-top:1%;
+    }
+
+    p
+    {
+        font-size: 36px;
+        margin-top: -6%;
+        font-weight: lighter;
+        margin-top: 2%;
+    }
+
+    
+    button
+    {
+       
+        width:368px;
+        font-size: 20px;
+        padding-top:35px;
+        padding-bottom:35px;
+        margin-top: 3%;
+    }
+
+    
+    .positioning
+    {
+       margin-left:9%;
+       margin-top: 14%;
     }
 
 
