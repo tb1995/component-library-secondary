@@ -1,5 +1,5 @@
 <script>
-    import '../styles/global.css';
+    import '../styles/global.css'
     export let heading3;
     export let heading1;
     export let text;
@@ -21,7 +21,9 @@
 </div>
 </div>
 
+
 <style>
+  
     .A
     {
         width:50%;
@@ -32,11 +34,12 @@
     {
         width:50%;
         background-color:rgba(33, 102, 151, 0.81);
-        position: absolute;
+        /* position: absolute;
         top:0%;
         bottom:0%;
-        right:0%;
+        right:0% */;
         height:100%;
+      
     }
 
     .positioning
@@ -86,14 +89,18 @@
     .Bg
     {
         display:flex;
-        background-image: url('../styles/RollBanners.jpg');
+        background-image: url('/RollBanners.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         width:100%;
-        padding:0%;
-        margin:0%;
-        height:98vh;
+        height:100vh;
+        margin:0px;
+        padding:0px;
+       /*  position:absolute;
+        top:0%;
+        left:0%; */
+
     }
 
     @media screen and (min-width:350px) and (max-width: 456px){
@@ -157,6 +164,11 @@
     {
         width:100%;
         height:100%;
+    }
+
+    .A
+    {
+      width:0%;
     }
 
     h3
