@@ -1,27 +1,56 @@
 <script>
     import StatBlock from '../components/stat-block.svelte';
 
+    let y;
+
     var Stats = [
         {
           'title' : 'Years of Excellence',
-          'EndingNumber' : 110,
+          'startingNumber' : 0,
+          'endingNumber' : 110
+
         },
 
         {
           'title' : 'Product SKUs',
-          'EndingNumber' : 150,
+          'startingNumber' : 0,
+          'endingNumber' :150
         },
 
         {
           'title' : 'Team Members',
-          'EndingNumber' : 300,
+          'startingNumber' : 0,
+          'endingNumber' : 130
         } 
 
         
 ]
 
-console.log("Stats title" , Stats[0].title);
-console.log("Stats EndingNNumber" , Stats[0].EndingNumber);
+
+
 </script>
+ 
+<svelte:window bind:scrollY={y} />
+
+ <div class={ y > 500 ? 'div' : 'div2'}>
+
+
+ </div>
 
 <StatBlock {Stats} />
+
+
+
+
+<style>
+  div
+  {
+    height:150vh;
+    background-color: darkolivegreen;
+  }
+
+  .div2
+  {
+    background-color: khaki;
+  }
+</style>
