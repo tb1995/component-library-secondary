@@ -1,36 +1,51 @@
 <script>
    import '../styles/global.css';
+   import {spring} from 'svelte/motion';
 
    export let Stats;
    console.log("Stats: array of  objects" , Stats);
+ 
+ 
+   let y;
+   
+   function scrolll()
+   { 
+
+    if ( y > 500)
+    {
+
+        let number = spring(Stats.startingNumber,{
+        stiffness:0.1,
+        damping:0.08
+        });
+
+        number.set(Stats.endingNumber);
+
+    }
+   }
 
 </script>
+<svelte:window bind:scrollY={y} on:scroll="{scrolll}"/>
 
-<div class="statBlock">
+<div class="statBlock" >
 <div class="Flex-Container">
         {#each Stats as stat}
         <div class="a">
-        <h1>{stat.EndingNumber} +</h1>
+        <h1>{stat.startingNumber}+</h1>
         <h2>{stat.title}</h2>    
         </div>    
         {/each}
-    <!-- <div class="b">
-        <h1>150+</h1>
-        <h2>Product SkUs</h2>
-    </div>
-    <div class="c">
-        <h1>300+</h1>
-        <h2>Team Members</h2>
-    </div> -->
 </div>
 </div>
+
 
 <style>
 
     .statBlock
     {
         background-color: navy;
-        margin-top: 5%;
+        margin-top: 7%;
+        margin-bottom: 4%;
     }
 
     .Flex-Container
@@ -59,7 +74,7 @@
 
     h2
     {
-        font-size: 24px;
+        font-size: 23px;
         font-weight: lighter;
         margin-top: -9%;
     }
