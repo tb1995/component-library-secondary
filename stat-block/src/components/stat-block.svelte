@@ -2,39 +2,67 @@
    import '../styles/global.css';
    import {spring} from 'svelte/motion';
 
-   export let Stats;
+   export /**
+* @type {{ title: any; }[]}
+*/
+    let Stats;
    console.log("Stats: array of  objects" , Stats);
  
- 
    let y;
+   console.log(y);
+   let number = spring(0,{
+        stiffness:0.1,
+        damping:0.9
+        });
+
+     let number2 = spring(0,{
+        stiffness:0.1,
+        damping:0.9
+        });
+
+    let number3 = spring(0,{
+        stiffness:0.1,
+        damping:0.9
+        });
+
+    
    
    function scrolll()
    { 
 
-    if ( y > 500)
+    if ( y > 700)
     {
-
-        let number = spring(Stats.startingNumber,{
-        stiffness:0.1,
-        damping:0.08
-        });
-
-        number.set(Stats.endingNumber);
+        number.set(Stats[0].endingNumber);
+        number2.set(Stats[1].endingNumber);
+        number3.set(Stats[2].endingNumber);
 
     }
    }
+
+
 
 </script>
 <svelte:window bind:scrollY={y} on:scroll="{scrolll}"/>
 
 <div class="statBlock" >
 <div class="Flex-Container">
-        {#each Stats as stat}
+    
         <div class="a">
-        <h1>{stat.startingNumber}+</h1>
-        <h2>{stat.title}</h2>    
+            <h1>{$number.toFixed(0)}+</h1>
+            <h2>{Stats[0].title}</h2>    
         </div>    
-        {/each}
+        
+        <div class="a">
+            <h1>{$number2.toFixed(0)}+</h1>
+            <h2>{Stats[1].title}</h2>    
+        </div>  
+
+            
+        <div class="a">
+            <h1>{$number3.toFixed(0)}+</h1>
+            <h2>{Stats[2].title}</h2>    
+        </div>  
+       
 </div>
 </div>
 
