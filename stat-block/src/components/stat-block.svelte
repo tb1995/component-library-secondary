@@ -13,7 +13,20 @@
 
    onMount(() => {
         let pos1 = stat.offsetTop;
-        console.log(pos1)
+        console.log(pos1);
+        
+       function scrolll()
+      { 
+      if ( pos1 > 1043)
+    {
+        number.set(Stats[0].endingNumber);
+        number2.set(Stats[1].endingNumber);
+        number3.set(Stats[2].endingNumber);
+
+    }
+   } 
+
+
     });
  
    let y;
@@ -45,7 +58,7 @@
         number3.set(Stats[2].endingNumber);
 
     }
-   }
+   } 
 
 
 
