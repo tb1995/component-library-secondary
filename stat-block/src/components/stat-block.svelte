@@ -17,7 +17,7 @@
         
        function scrolll()
       { 
-      if ( pos1 > 1043)
+      if ( pos1 > stat.offsetTop)
     {
         number.set(Stats[0].endingNumber);
         number2.set(Stats[1].endingNumber);
