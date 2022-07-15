@@ -13,61 +13,54 @@
 
    
    let viewportHeight;
-   onMount(() => {
-        let pos1 = stat.offsetTop;
-        console.log(pos1);
-        console.log("viewport heoght is" , viewportHeight);
-        
-       function scrolll()
-      { 
-      if ( (y + viewportHeight) > pos1 )
-       {
-        number.set(Stats[0].endingNumber);
-        number2.set(Stats[1].endingNumber);
-        number3.set(Stats[2].endingNumber);
+  
 
-      }
-      } 
-
-
-    });
-
+  
    
    let y;
    console.log(y);
    let number = spring(0,{
         stiffness:0.1,
-        damping:0.9
+        damping:0.07
         });
 
      let number2 = spring(0,{
         stiffness:0.1,
-        damping:0.9
+        damping:0.07
         });
 
     let number3 = spring(0,{
         stiffness:0.1,
-        damping:0.9
+        damping:0.07
         });
 
-    
-   
-   function scrolll()
-   { 
+        //let viewportHeight;    
+        function scrolll()
+        { 
 
-    if ( y > 700)
-    {
+        //let viewportHeight;
+        let pos1 = stat.offsetTop;
+        console.log("y" , y);
+        console.log("height" , viewportHeight) ;
+        console.log("pos1" , pos1);
+        if ( (y + viewportHeight) > pos1 )
+       {
         number.set(Stats[0].endingNumber);
         number2.set(Stats[1].endingNumber);
         number3.set(Stats[2].endingNumber);
 
-    }
-   } 
 
+      } 
+
+       
+       }
+
+    
+ 
 
 
 </script>
-<svelte:window bind:scrollY={y} on:scroll="{scrolll}" bind:innerHeight={viewportHeight}/>
+<svelte:window bind:scrollY={y}  on:scroll={scrolll} bind:innerHeight={viewportHeight}/>
 
 <div class="statBlock" bind:this={stat}>
 <div class="Flex-Container">
