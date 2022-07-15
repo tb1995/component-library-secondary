@@ -1,12 +1,20 @@
 <script>
    import '../styles/global.css';
    import {spring} from 'svelte/motion';
+   import {onMount} from 'svelte';
 
    export /**
 * @type {{ title: any; }[]}
 */
     let Stats;
    console.log("Stats: array of  objects" , Stats);
+
+   let stat;
+
+   onMount(() => {
+        let pos1 = stat.offsetTop;
+        console.log(pos1)
+    });
  
    let y;
    console.log(y);
@@ -44,7 +52,7 @@
 </script>
 <svelte:window bind:scrollY={y} on:scroll="{scrolll}"/>
 
-<div class="statBlock" >
+<div class="statBlock" bind:this={stat}>
 <div class="Flex-Container">
     
         <div class="a">
