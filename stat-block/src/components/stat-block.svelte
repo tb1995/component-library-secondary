@@ -11,24 +11,28 @@
 
    let stat;
 
+   
+   let viewportHeight;
    onMount(() => {
         let pos1 = stat.offsetTop;
         console.log(pos1);
+        console.log("viewport heoght is" , viewportHeight);
         
        function scrolll()
       { 
-      if ( pos1 > stat.offsetTop)
-    {
+      if ( (y + viewportHeight) > pos1 )
+       {
         number.set(Stats[0].endingNumber);
         number2.set(Stats[1].endingNumber);
         number3.set(Stats[2].endingNumber);
 
-    }
-   } 
+      }
+      } 
 
 
     });
- 
+
+   
    let y;
    console.log(y);
    let number = spring(0,{
@@ -63,7 +67,7 @@
 
 
 </script>
-<svelte:window bind:scrollY={y} on:scroll="{scrolll}"/>
+<svelte:window bind:scrollY={y} on:scroll="{scrolll}" bind:innerHeight={viewportHeight}/>
 
 <div class="statBlock" bind:this={stat}>
 <div class="Flex-Container">
