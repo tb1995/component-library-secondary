@@ -1,5 +1,5 @@
 <script>
-    import Faq from '../component/FAQ-component.svelte';
+    import FaqComp from '../component/faq-comp.svelte';
 
     let array = [
 	            {
@@ -39,5 +39,5 @@
 </script>
 
 
-<Faq {array} />
+<FaqComp {array} />
     
