@@ -1,7 +1,8 @@
 <script>
+    import Ques from '../component/question.svelte';
     export let array;
     console.log("array iss" , array);
-    let display = true;
+    //let display = false;
 </script>
 
 <div class="section">
@@ -19,17 +20,10 @@
             {#each array as arrayItem}
               {#each arrayItem.questionList as ques}
               <hr>
-              <div class="faqQues" on:click={ () => display = !display }>
-                <p>{ques.question}</p>
-              </div>
-
-              <div class={ display ? 'faqAns' : 'faqAns2'}>
-                <p>{ques.answer}</p>
-              </div>
-                {/each}
-               {/each}
+              <Ques question={ques.question} answer={ques.answer}/>
+              {/each}
+              {/each}
               <hr>
-
         </div>
         </div>
 
@@ -74,7 +68,7 @@
         font-size:40px;
     }
 
-    .faqQues 
+    /* .faqQues 
     {
         font-size: 14px;
         padding-left: 25px;
@@ -89,7 +83,6 @@
         width: 1em;
         height: 1em;
         transition: all 0.35s;
-        margin-top: 16px;
         color:black;
         text-align: center;
         margin-right: 5px;
@@ -122,7 +115,7 @@
         padding-bottom:2px;
 
     }
-
+ */
     .blockP
     {
         font-size: 22px;
