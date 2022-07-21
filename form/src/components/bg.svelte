@@ -6,12 +6,12 @@
 
 <div class="bg">
     <div class="flex">
-      <div class="A">  
+      <div class="formBlock">  
         <slot name="A">
             <Form />
         </slot>
       </div>
-      <div class="B">
+      <div class="dummyBlock">
         <slot name="B">
             <Other />
          </slot>
@@ -41,15 +41,35 @@
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
-    .A
+    .formBlock
     {
         width:50%;
         height:100%;
     }
 
-    .B
+    .dummyBlock
     {
         width:50%;
         height:100%;
     }
+
+    @media screen and (min-width:350px) and (max-width:600px)
+    {
+
+    .formBlock , .dummyBlock
+    {
+        width:100%;
+    
+    }
+
+    .flex
+    {
+        display:flex;
+        flex-direction: column;
+    }
+
+    }
+
+
+       
 </style>
