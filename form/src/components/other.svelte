@@ -52,11 +52,11 @@
 <style>
 
     
-.flexCol
+  .flexCol
     {
         display:flex;
         flex-direction: column;
-        margin-top: 24%;
+        margin-top: 29%;
         margin-left: 5%;
     }
 
@@ -70,7 +70,7 @@
     .fCW
     {
         width:80px;
-        padding-bottom: 30px;
+        padding-bottom: 34px;
         text-align: center;
         color:white;
     }
@@ -87,7 +87,141 @@
         display: flex;
     }
 
-   
+    @media screen and (min-width:350px) and (max-width:460px)
+    {
 
+    .flexCol
+    {
+        margin-left: 12%;
+        margin-top: 0%;
+    }
+
+    
+    .fCW
+    {
+        width:60px;
+        padding-bottom: 18px;
+        font-size: 12px;
+    }
+
+    .fCW2
+    {
+        font-size: 12px;
+    }
+
+
+    }
+
+    @media screen and (min-width:461px) and (max-width:600px)
+    {
+
+    .flexCol
+    {
+        margin-left: 17.5%;
+        margin-top: 0%;
+    }
+
+    
+    .fCW
+    {
+        width:60px;
+        padding-bottom: 18px;
+        font-size: 13px;
+    }
+
+    .fCW2
+    {
+        font-size: 13px;
+    }
+
+
+    }
+
+    @media screen and (min-width:601px) and (max-width:800px)
+    {
+
+    .flexCol
+    {
+        display:flex;
+        flex-direction: column;
+        margin-top:45%;
+        margin-left: 6%;
+    }
+
+    
+    .fCW
+    {
+        width:60px;
+        padding-bottom: 38px;
+        text-align: center;
+        color:white;
+        font-size:12px;
+    }
+
+    .fCW2
+    {
+        width:380px;
+        color:white;
+        font-weight: bold;
+        font-size:12px;
+    }
+
+    }
+
+
+    @media screen and (min-width:801px) and (max-width:1000px)
+    {
+
+    .flexCol
+    {
+        display:flex;
+        flex-direction: column;
+        margin-top:38%;
+        margin-left: 5%;
+    }
+
+    
+    .fCW
+    {
+        width:60px;
+        padding-bottom: 38px;
+        font-size:14px;
+    }
+
+    .fCW2
+    {
+        width:380px;
+        color:white;
+        font-weight: bold;
+        font-size:14px;
+    }
+
+    }
+
+
+    @media screen and (min-width:1001px) and (max-width:1150px)
+    {
+
+    .flexCol
+    {
+        display:flex;
+        flex-direction: column;
+        margin-top:36%;
+        margin-left: 8%;
+    }
+
+    
+    .fCW
+    {
+        padding-bottom: 40px;
+        font-size:15px;
+    }
+
+    .fCW2
+    {
+        font-size:15px;
+    }
+
+    }
 
 </style>
