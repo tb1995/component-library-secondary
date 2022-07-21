@@ -68,54 +68,7 @@
         font-size:40px;
     }
 
-    /* .faqQues 
-    {
-        font-size: 14px;
-        padding-left: 25px;
-        display: flex;
-        cursor: pointer;
-    }
-
-    .faqQues:after 
-    {
-        margin-left: auto;
-        content: "❯";
-        width: 1em;
-        height: 1em;
-        transition: all 0.35s;
-        color:black;
-        text-align: center;
-        margin-right: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
  
- 
-
-    .faqAns
-    {
-        font-size: 14px;
-        padding-left: 25px;
-        padding-bottom:0px ;
-        padding-right: 15px;
-        text-align: justify;
-        display:none;
-      
-    }
-
-    .faqAns2
-    {
-        font-size: 14px;
-        padding-left: 25px;
-        padding-bottom:0px ;
-        padding-right: 25px;
-        text-align: justify;
-        display:block;
-        font-weight: lighter;
-        padding-bottom:2px;
-
-    }
- */
     .blockP
     {
         font-size: 22px;
@@ -124,6 +77,118 @@
         padding-right: 15px;
         color:blue;
     }
+
+    @media screen and (max-width:555px)
+    {
+        .flex
+        {
+            display:flex;
+            flex-direction:column;
+        }
+
+        .blockA
+        {
+            width: 100%;
+        }
+
+        .blockB
+        {
+            width:100%;
+        }
+
+        .blockP
+        {
+         font-size:20px;
+         float:none;
+         text-align:center ;
+        }
+
+        .faqBlock
+        {
+            width:350px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    @media screen and (min-width:556px) and (max-width:650px)
+    {
+        
+
+        .blockP
+        {
+         font-size:16px;
+         padding-right: 0px;
+        }
+
+        .faqBlock
+        {
+            width:320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+
+    }
+
+    @media screen and (min-width:651px) and (max-width:800px)
+    {
+        
+
+        .blockP
+        {
+         font-size:17px;
+        }
+
+        .faqBlock
+        {
+            width:400px;
+         
+        }
+
+        
+
+    }
+
+    @media screen and (min-width:801px) and (max-width:900px)
+    {
+        
+
+        .blockP
+        {
+         font-size:18px;
+        }
+
+        .faqBlock
+        {
+            width:460px;
+         
+        }
+
+        
+
+    }
+
+    @media screen and (min-width:901px) and (max-width:1000px)
+    {
+        
+
+        .blockP
+        {
+         font-size:20px;
+        }
+
+        .faqBlock
+        {
+            width:540px;
+         
+        }
+
+        
+
+    }
+
 
 
 
