@@ -4,7 +4,7 @@
     let display = false;
 </script>
 
-             <p class="faqQues" on:click={ () => display = !display }>{question}</p>
+             <p class="faqQues {display ? 'toggle' : ''}" on:click={ () => display = !display }>{question}</p>
               <div class={ display ? 'faqAns2' : 'faqAns'}>
                 <p>{answer}</p>
               </div>
@@ -30,6 +30,11 @@
         margin-right: 5px;
         cursor: pointer;
         font-weight: bold;
+    }
+
+    .toggle::after
+    {
+      transform: rotate(90deg);
     }
 
     
