@@ -4,7 +4,7 @@
     let display = false;
 </script>
 
-       <p class="faqQues" on:click={ () => display = !display }>{question}</p>
+             <p class="faqQues" on:click={ () => display = !display }>{question}</p>
               <div class={ display ? 'faqAns2' : 'faqAns'}>
                 <p>{answer}</p>
               </div>
@@ -13,7 +13,7 @@
     .faqQues 
     {
         font-size: 14px;
-        padding-left: 25px;
+        padding-left: 25px; 
         display: flex;
         cursor: pointer;
     }
@@ -31,8 +31,9 @@
         cursor: pointer;
         font-weight: bold;
     }
- 
- 
+
+    
+
 
     .faqAns
     {
@@ -42,20 +43,51 @@
         padding-right: 15px;
         text-align: justify;
         display:none;
-      
+       
     }
 
     .faqAns2
     {
         font-size: 14px;
         padding-left: 25px;
-        padding-bottom:0px ;
         padding-right: 25px;
         text-align: justify;
         display:block;
         font-weight: lighter;
-        padding-bottom:2px;
-
+        padding-top: 2px;
     }
+
+
+    @media screen and (max-width:555px)
+    {
+        .faqQues, .faqAns2
+        {
+            font-size: 12px;
+        }
+
+        
+    }
+
+    @media screen and (min-width:556px) and (max-width:650px)
+    {
+        .faqQues, .faqAns2
+        {
+            font-size: 12px;
+        }
+
+        
+    }
+
+    @media screen and (min-width:651px) and (max-width:800px)
+    {
+        .faqQues, .faqAns2
+        {
+            font-size: 13px;
+        }
+
+        
+    }
+
+ 
 
 </style>
