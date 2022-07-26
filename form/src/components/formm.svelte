@@ -7,7 +7,7 @@
      let text = '';
 
 
-     function input()
+   /*   function input()
      {
         if (Fname.length >= 1 || Lname.length >= 1 || email.length >= 1
            || phone.length >= 1 || text.length >= 1)
@@ -18,7 +18,7 @@
             showPhoneMsg = false;
             showText = false;
           
-        } 
+        }  */
         /*
 
         for (var i=0; i < Fname.length; i++)
@@ -35,9 +35,10 @@
             }
         
         } 
+    }
      */
-     }
-
+     
+/* 
      let showFNMessage = false;
      let showLNMessage = false;
      let showEmailMsg = false;
@@ -46,15 +47,63 @@
      let validatePh;
      let empty;
 
+*/
+
+     let FNerrorMsg = '' ;
+     let showFNMessage;
      function FNmessage()
      {
-       showFNMessage = !showFNMessage;
+       if ( Fname.length > 0  && Fname.length < 3)
+       {
+         FNerrorMsg = 'first name should contain minimum 3 characters';
+         showFNMessage = true;
+       } 
+
+       else if (Fname.length > 10)
+       {
+          FNerrorMsg = 'first name should not exceed 10 characters';
+          showFNMessage = true;
+
+       }
+
+       else
+       {
+           FNerrorMsg = '';
+           showFNMessage = false;
+
+       }
+
      }
 
+
+     let showLNMessage;
+     let LNerrorMsg = '';
      function LNmessage()
      {
-       showLNMessage = !showLNMessage;
+        if ( Lname.length > 0  && Lname.length < 3)
+       {
+         LNerrorMsg = 'last name should contain minimum 3 characters';
+         showLNMessage = true;
+       } 
+
+       else if (Lname.length > 10)
+       {
+          LNerrorMsg = 'last name should not exceed 10 characters';
+          showLNMessage = true;
+          //console.log("exceeded than 10");
+
+       }
+
+       else
+       {
+           LNerrorMsg = '';
+           showLNMessage = false;
+           //console.log("should vanish");
+       }
+      
      }
+
+     /*
 
      function EmailMessage()
      {
@@ -71,9 +120,11 @@
         showText = !showText;
      }
 
-
+ */
      var phoneResult;
-     function validate()
+     let validatePh;
+     let PhoneMessage = '';
+     function validatePhone()
      {
         var phoneRGEX = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
         phoneResult = phoneRGEX.test(phone);
@@ -83,22 +134,55 @@
         
         if (phoneResult && phone.length == 12)
         {
+            PhoneMessage = 'valid phone no. ';
             validatePh = true;
 
-        }
-
-        if (phone.length > 12 || phone.length < 12)
+        } 
+        else
         {
-            validatePh =false;
-        }
-
-     /*    if ( !phoneResult && (phone.length > 12) )  
-        {
+            PhoneMessage = 'invalid phone no.';
             validatePh = false;
         }
 
-         */
+        if (phone.length == 0)
+        {
+            PhoneMessage = '';
+            validatePh = 'false';
+        }
+
+   
      }
+
+     var emailResult;
+     let validateE;
+     let EmailErrorMsg = '';
+     function validateEmail()
+     {
+        var emailRGEX =/^[^ ]+@[^ ]+\.[a-z]{2}/;
+        emailResult = emailRGEX.test(email);
+
+
+        if (emailResult)
+        {
+            EmailErrorMsg = 'valid email address';
+            validateE = true;
+        }
+        else
+        {
+            EmailErrorMsg = 'invalid email address';
+            validateE = false;
+        }
+
+        if (email.length == 0)
+        {
+            EmailErrorMsg = '';
+            validateE = false;
+        }
+
+
+     }
+
+
 
         
 </script>
@@ -108,33 +192,29 @@
     <label>Send us a message</label>
     <input type="text"
            placeholder="First Name" 
-           bind:value={Fname} 
-           on:keyup={FNmessage} 
-           on:input={input}  required/>
+           bind:value={Fname}
+           on:input={FNmessage} required/>
     
     {#if showFNMessage}
-    <p class="normalText">Please enter your First Name</p>
-    {:else if !showFNMessage}
-    <p class="Errormessage {Fname.length > 1 && Fname.length < 4 ? 'block' : 'none'}">First Name should contain  atleast 3 characters or more</p>
-    <p class="Errormessage {Fname.length > 9? 'block' : 'none'} ">First Name should not contain more than 9 characters</p>  
-    {/if}
+    <p class="Errormessage">{FNerrorMsg}</p>
+    {:else}
+    <p class="Errormessage">{FNerrorMsg}</p>
+    {/if} 
     
-   
                   <!-- xxxxxxxxxxxxxxxxxx -->
 
 
     <input type="text" 
            placeholder="Last Name" 
            bind:value={Lname} 
-           on:focus="{LNmessage}" 
-           on:input={input} required>
+           on:input={LNmessage} required>
 
     {#if showLNMessage}
-    <p  class="normalText">Please enter your Last Name</p>
-    {:else if !showLNMessage}
-    <p class="Errormessage {Lname.length > 1 && Lname.length < 3 ? 'block' : 'none'}">Last Name should contain  atleast 3 characters or more</p>
-    <p class="Errormessage {Lname.length > 10 ? 'block' : 'none'}">Last Name should not contain more than 10 characters</p>  
-    {/if} 
+    <p  class="Errormessage">{LNerrorMsg}</p>
+    {:else} 
+    <p  class="Errormessage">{LNerrorMsg}</p>
+    {/if}
+  
 
 
                   <!--  xxxxxxxxxxxxxxxxxxxx -->
@@ -143,42 +223,40 @@
     <input type="email" 
            placeholder="Email" 
            bind:value={email} 
-           on:focus="{EmailMessage}" 
-           on:input={input} required/>
+           on:input={validateEmail} required/>
 
-    {#if showEmailMsg}
-    <p  class="normalText">Please enter your Email address</p>
-    {/if} 
+
+    {#if validateE}
+    <p  class="message">{EmailErrorMsg}</p>
+    {:else}
+    <p class="Errormessage">{EmailErrorMsg}</p>
+    {/if}
                     <!--xxxxxxxxxxxxxxxxxxxx -->
     
     
     <input type="tel" 
            placeholder="xxx-xxx-xxxx" 
            bind:value={phone} 
-           on:focus="{PhoneMessage}" 
-           on:input="{validate}"
-           on:input="{input}" required/>
+           on:input="{validatePhone}" required/>
 
-    {#if showPhoneMsg}
-    <p  class="normalText">Please enter your phone no.</p>
+    {#if validatePh}
+    <p  class="message">{PhoneMessage}</p>
+    {:else}
+    <p  class="Errormessage">{PhoneMessage}</p>
     {/if}
-    <p class="message { validatePh ? 'block' : 'none'}">phone no. is valid</p>
- <!--    <p class="message { !validatePh ? 'block' : 'none'}">invalid phone no.</p>
- -->
+ 
  
                      <!--  xxxxxxxxxxxxxxxxxxxx -->
 
     
     <textarea cols="30"
               rows="5"
-              placeholder="Message" 
-              bind:value={text}
-              on:focus="{Text}" 
-              on:input="{input}"></textarea>
-
+              placeholder="Enter your message here" 
+              bind:value={text}></textarea>
+<!-- 
     {#if showText}
     <p  class="normalText">Please enter the message</p>
-    {/if}
+    {/if} -->
     
 
     <button>Send</button>
@@ -275,14 +353,7 @@
        
     }
 
-    .normalText
-    {
-        font-size: 12px;
-        color:black;
-        margin-bottom: 0px;
-        text-indent: 33px;
-    }
-
+ 
     .block
     {
         display: block;
