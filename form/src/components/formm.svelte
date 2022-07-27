@@ -174,7 +174,7 @@
            on:input={FNmessage} required/>
     
     {#if showFNMessage}
-    <p class="Errormessage">{FNerrorMsg}</p>
+    <p class="message">{FNerrorMsg}</p>
     {:else}
     <p class="Errormessage">{FNerrorMsg}</p>
     {/if} 
