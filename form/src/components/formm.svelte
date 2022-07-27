@@ -103,13 +103,13 @@
      let PhoneMessage = '';
      function validatePhone()
      {
-        var phoneRGEX = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}/;
+        var phoneRGEX = /^[0][3][0-9]{9}/g;
         phoneResult = phoneRGEX.test(phone);
         console.log("phone:"+phoneResult );
         console.log("phone value" , phone);
 
         
-        if (phoneResult && phone.length == 12)
+        if (phoneResult && phone.length == 11)
         {
             PhoneMessage = 'valid phone no. ';
             validatePh = true;
@@ -214,7 +214,7 @@
     
     
     <input type="tel" 
-           placeholder="xxx-xxx-xxxx" 
+           placeholder="03xxxxxxxxx" 
            bind:value={phone} 
            on:input="{validatePhone}" required/>
 
