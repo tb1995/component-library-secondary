@@ -7,120 +7,98 @@
      let text = '';
 
 
-   /*   function input()
-     {
-        if (Fname.length >= 1 || Lname.length >= 1 || email.length >= 1
-           || phone.length >= 1 || text.length >= 1)
-        {
-            showFNMessage = false;
-            showLNMessage  = false;
-            showEmailMsg = false;
-            showPhoneMsg = false;
-            showText = false;
-          
-        }  */
-        /*
 
-        for (var i=0; i < Fname.length; i++)
-        {
-            if ( ( Fname.charCodeAt(i) <= 65 && Fname.charCodeAt(i) >= 90)   ||
-                 ( Fname.charCodeAt(i) <= 97 && Fname.charCodeAt(i) >= 122)   )
-            {
-                 document.getElementById('fn').style.display = 'block';
-            }
-
-            else
-            {
-                 document.getElementById('fn').style.display= 'none';
-            }
-        
-        } 
-    }
-     */
-     
-/* 
-     let showFNMessage = false;
-     let showLNMessage = false;
-     let showEmailMsg = false;
-     let showPhoneMsg = false;
-     let showText = false;
-     let validatePh;
-     let empty;
-
-*/
 
      let FNerrorMsg = '' ;
      let showFNMessage;
      function FNmessage()
      {
-       if ( Fname.length > 0  && Fname.length < 3)
-       {
-         FNerrorMsg = 'first name should contain minimum 3 characters';
-         showFNMessage = true;
-       } 
+       var nameRGEX = /^[a-zA-Z ]{2,12}$/;
+       var nameResult = nameRGEX.test( Fname );
 
-       else if (Fname.length > 10)
+       if (nameResult)
        {
-          FNerrorMsg = 'first name should not exceed 10 characters';
-          showFNMessage = true;
+
+        if ( Fname.length > 0  && Fname.length < 3)
+        {
+            FNerrorMsg = 'first name should contain minimum 3 characters';
+            showFNMessage = true;
+        } 
+
+        else if (Fname.length > 10)
+        {
+            FNerrorMsg = 'first name should not exceed more than 10 characters';
+            showFNMessage = true;
+
+        }
+
+        else
+        {
+            FNerrorMsg = '';
+            showFNMessage = false;
+        }
 
        }
+        
 
        else
        {
-           FNerrorMsg = '';
+           FNerrorMsg = 'invalid';
            showFNMessage = false;
 
        }
 
      }
 
+     
+
 
      let showLNMessage;
      let LNerrorMsg = '';
      function LNmessage()
      {
-        if ( Lname.length > 0  && Lname.length < 3)
-       {
-         LNerrorMsg = 'last name should contain minimum 3 characters';
-         showLNMessage = true;
-       } 
+        var LnameRGEX = /^[a-zA-Z ]{2,12}$/;
+        var LnameResult = LnameRGEX.test( Lname );
 
-       else if (Lname.length > 10)
-       {
-          LNerrorMsg = 'last name should not exceed 10 characters';
-          showLNMessage = true;
-          //console.log("exceeded than 10");
+        if (LnameResult)
+        {
 
-       }
+            if ( Lname.length > 0  && Lname.length < 3)
+            {
+                LNerrorMsg = 'last name should contain minimum 3 characters';
+                showLNMessage = true;
+            } 
 
-       else
-       {
-           LNerrorMsg = '';
-           showLNMessage = false;
-           //console.log("should vanish");
-       }
-      
-     }
+            else if (Lname.length > 10)
+            {
+                LNerrorMsg = 'last name should not exceed more than 10 characters';
+                showLNMessage = true;
+                //console.log("exceeded than 10");
 
-     /*
+            }
 
-     function EmailMessage()
-     {
-        showEmailMsg = !showEmailMsg;
-     }
+            else
+            {
+                LNerrorMsg = '';
+                showLNMessage = false;
+                //console.log("should vanish");
+            }
+        
 
-     function PhoneMessage()
-     {
-        showPhoneMsg = !showPhoneMsg;
-     }
+        }
 
-     function Text()
-     {
-        showText = !showText;
-     }
+        
+        else
+        {
+                LNerrorMsg = 'invalid';
+                showFNMessage = false;
 
- */
+        }
+       
+      }
+
+     
+
      var phoneResult;
      let validatePh;
      let PhoneMessage = '';
@@ -152,6 +130,8 @@
 
    
      }
+
+
 
      var emailResult;
      let validateE;
@@ -253,11 +233,7 @@
               rows="5"
               placeholder="Enter your message here" 
               bind:value={text}></textarea>
-<!-- 
-    {#if showText}
-    <p  class="normalText">Please enter the message</p>
-    {/if} -->
-    
+
 
     <button>Send</button>
 </form>
@@ -271,7 +247,7 @@
         float:right;
         display:flex;
         flex-direction: column;
-        margin-top: 12%;
+        margin-top: 11%;
         background-color:aliceblue;
     }
 
@@ -279,7 +255,7 @@
     {
         width:85%;
         height:32px;
-        margin-top: 17px;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
         background-color: white;
@@ -298,7 +274,7 @@
     textarea
     {
         width:87%;
-        margin-top: 20px;
+        margin-top: 13px;
         margin-left: auto;
         margin-right: auto;
         border: 0px;
@@ -332,6 +308,7 @@
         text-indent: 40px;
         font-weight: bold;
         margin-top: 8%;
+        margin-bottom: 3%;
     }
 
 
@@ -341,6 +318,7 @@
         color:green;
         margin-bottom: 0px;
         text-indent: 33px;
+        margin-top: 2px;
        
     }
 
@@ -350,19 +328,11 @@
         color:red;
         margin-bottom: 0px;
         text-indent: 33px;
+        margin-top: 2px;
        
     }
 
  
-    .block
-    {
-        display: block;
-    }
-
-    .none
-    {
-        display: none;
-    }
 
     
     @media screen and (min-width:350px) and (max-width:460px)
