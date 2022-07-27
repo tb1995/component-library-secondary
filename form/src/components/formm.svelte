@@ -13,13 +13,13 @@
      let showFNMessage;
      function FNmessage()
      {
-        var nameRGEX = /^[a-zA-Z ]{2,10}$/;
+        var nameRGEX = /^[a-zA-Z ]{1,10}$/;
         var FnameResult = nameRGEX.test( Fname );
 
         if (FnameResult)
         {
 
-            if ( Fname.length > 0  && Fname.length < 3)
+            if ( Fname.length >0  && Fname.length < 3)
             {
                 FNerrorMsg = 'first name should contain minimum 3 characters';
                 showFNMessage = false;
@@ -29,7 +29,6 @@
             {
                 FNerrorMsg = 'valid name!';
                 showFNMessage = true;
-                //console.log("exceeded than 10");
 
             }
 
@@ -58,7 +57,7 @@
      let LNerrorMsg = '';
      function LNmessage()
      {
-        var LnameRGEX = /^[a-zA-Z ]{2,10}$/;
+        var LnameRGEX = /^[a-zA-Z ]{1,10}$/;
         var LnameResult = LnameRGEX.test( Lname );
 
         if (LnameResult)
