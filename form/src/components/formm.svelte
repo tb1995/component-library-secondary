@@ -13,7 +13,7 @@
      let showFNMessage;
      function FNmessage()
      {
-       var nameRGEX = /^[a-zA-Z ]{2,10}$/;
+       var nameRGEX = /^[a-zA-Z ]{2,11}$/;
        var nameResult = nameRGEX.test( Fname );
 
        if (nameResult)
@@ -57,7 +57,7 @@
      let LNerrorMsg = '';
      function LNmessage()
      {
-        var LnameRGEX = /^[a-zA-Z ]{2,10}$/;
+        var LnameRGEX = /^[a-zA-Z ]{2,11}$/;
         var LnameResult = LnameRGEX.test( Lname );
 
         if (LnameResult)
