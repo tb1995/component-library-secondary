@@ -13,40 +13,41 @@
      let showFNMessage;
      function FNmessage()
      {
-       var nameRGEX = /^[a-zA-Z ]{2,11}$/;
-       var nameResult = nameRGEX.test( Fname );
+        var nameRGEX = /^[a-zA-Z ]{2,10}$/;
+        var FnameResult = nameRGEX.test( Fname );
 
-       if (nameResult)
-       {
-
-        if ( Fname.length > 0  && Fname.length < 3)
+        if (FnameResult)
         {
-            FNerrorMsg = 'first name should contain minimum 3 characters';
-            showFNMessage = true;
-        } 
 
-        else if (Fname.length > 10)
-        {
-            FNerrorMsg = 'first name should not exceed more than 10 characters';
-            showFNMessage = true;
+            if ( Fname.length > 0  && Fname.length < 3)
+            {
+                FNerrorMsg = 'first name should contain minimum 3 characters';
+                showFNMessage = false;
+            } 
 
+            if (Fname.length >= 3 && Fname.length <= 10)
+            {
+                FNerrorMsg = 'valid name!';
+                showFNMessage = true;
+                //console.log("exceeded than 10");
+
+            }
+
+        
         }
 
         else
         {
-            FNerrorMsg = '';
+            FNerrorMsg = 'invalid';
             showFNMessage = false;
-        }
 
-       }
+            if ( Fname.length > 10)
+            {
+                FNerrorMsg = 'first name should not exceed more than 10 characters';
+                showFNMessage = false;
         
-
-       else
-       {
-           FNerrorMsg = 'invalid';
-           showFNMessage = false;
-
-       }
+            }    
+        }
 
      }
 
@@ -57,7 +58,7 @@
      let LNerrorMsg = '';
      function LNmessage()
      {
-        var LnameRGEX = /^[a-zA-Z ]{2,11}$/;
+        var LnameRGEX = /^[a-zA-Z ]{2,10}$/;
         var LnameResult = LnameRGEX.test( Lname );
 
         if (LnameResult)
@@ -66,38 +67,36 @@
             if ( Lname.length > 0  && Lname.length < 3)
             {
                 LNerrorMsg = 'last name should contain minimum 3 characters';
-                showLNMessage = true;
+                showLNMessage = false;
             } 
 
-            else if (Lname.length > 10)
+            if (Lname.length >= 3 && Lname.length <= 10)
             {
-                LNerrorMsg = 'last name should not exceed more than 10 characters';
+                LNerrorMsg = 'valid name';
                 showLNMessage = true;
                 //console.log("exceeded than 10");
 
             }
 
-            else
-            {
-                LNerrorMsg = '';
-                showLNMessage = false;
-                //console.log("should vanish");
-            }
         
-
         }
 
-        
         else
         {
-                LNerrorMsg = 'invalid';
-                showFNMessage = false;
+            LNerrorMsg = 'invalid';
+            showLNMessage = false;
 
+            if ( Lname.length > 10)
+            {
+                LNerrorMsg = 'last name should not exceed more than 10 characters';
+                showLNMessage = false;
+        
+            }    
         }
-       
-      }
+         
 
-     
+    }
+
 
      var phoneResult;
      let validatePh;
@@ -138,7 +137,7 @@
      let EmailErrorMsg = '';
      function validateEmail()
      {
-        var emailRGEX =/^[^ ]+@[^ ]+\.[a-z]{2}/;
+        var emailRGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         emailResult = emailRGEX.test(email);
 
 
@@ -190,7 +189,7 @@
            on:input={LNmessage} required>
 
     {#if showLNMessage}
-    <p  class="Errormessage">{LNerrorMsg}</p>
+    <p  class="message">{LNerrorMsg}</p>
     {:else} 
     <p  class="Errormessage">{LNerrorMsg}</p>
     {/if}
@@ -314,7 +313,7 @@
 
     .message
     {
-        font-size: 12px;
+        font-size: 10px;
         color:green;
         margin-bottom: 0px;
         text-indent: 33px;
@@ -324,7 +323,7 @@
 
     .Errormessage
     {
-        font-size: 12px;
+        font-size: 10px;
         color:red;
         margin-bottom: 0px;
         text-indent: 33px;
